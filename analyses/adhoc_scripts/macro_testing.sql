@@ -1,0 +1,1 @@
+{{generate_targetted_array_element_distinct_values('listings_daily_report', 'amenities_available_array', 'lockbox', 'host_id')}}

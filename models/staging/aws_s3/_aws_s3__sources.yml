@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: aws_s3
+    database: 
+    schema: AWS_S3_FILES  
+    tables:
+    # If these are actual files pulled from S3, 
+    # then we can have a load date and add source freshnes with error or warn config
+      - name: listings_data
+        identifier: LISTINGS
+      - name: listings_reservation_calendar
+        identifier: CALENDAR
+      - name: listings_reviews
+        identifier: GENERATED_REVIEWS
+      - name: amenities_changelog
+        identifier: AMENITIES_CHANGELOG
