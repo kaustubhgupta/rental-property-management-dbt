@@ -1,7 +1,7 @@
 {{
   config(
     materialized = 'incremental',
-    unique_key = ['listing_id', 'host_id'],
+    unique_key = ['host_id'],
     strategy = 'merge'
     )
 }}
@@ -12,7 +12,7 @@
  */
 
 select
-    listing_id,
+    distinct
     host_id,
     host_name,
     host_since_date,

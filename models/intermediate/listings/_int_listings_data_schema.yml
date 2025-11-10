@@ -1,0 +1,85 @@
+models:
+  - name: int_listings_data
+    description: Listings data intermediate table
+    columns:
+      - name: listing_id
+        description: Unique ID for this listing
+        data_type: number
+        data_tests:
+          - not_null
+          - unique
+          - positive_value_check
+      - name: listing_name
+        description: Display name of listing
+        data_type: varchar
+      - name: host_id
+        description: Unique ID for the Host who owns this property
+        data_type: number
+        data_tests:
+          - not_null
+          - relationships:
+              field: HOST_ID
+              to: ref('int_host_data')
+          - positive_value_check
+      - name: listing_neighborhood
+        description: The neighborhood where this listing is located
+        data_type: varchar
+      - name: listing_property_type
+        description: Description of the type of property
+        data_type: varchar
+      - name: listing_rooms_type
+        description: Description of the type of room
+        data_type: varchar
+        data_tests:
+          - accepted_values:
+              values: ['Private', 'Entire']
+      - name: no_of_persons_accomodates
+        description: Number of guests this room can accommodate
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: no_of_bathrooms
+        description: Number of bathrooms available
+        data_type: float
+        data_tests:
+          - positive_value_check
+      - name: listing_bathroom_type
+        description: Type of bathroom available
+        data_type: varchar
+        data_tests:
+          - accepted_values:
+              values: ['Private', 'Sharing', 'NA']
+      - name: no_of_bedrooms
+        description: Number of bedrooms available for use
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: no_of_beds
+        description: Number of beds available for use
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: no_of_reviews
+        description: The number of reviews this listing has ever received
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: listing_first_review
+        description: The date of the first review this listing received
+        data_type: date
+      - name: listing_last_review
+        description: The date of the most recent review this listing received
+        data_type: date
+      - name: listing_avg_review_scores
+        description: The average review score of this listing
+        data_type: float
+        data_tests:
+          - positive_value_check
+      - name: amenities_available_array
+        description: Array of amenities available for guests
+        data_type: array
+      - name: listing_latest_price_usd
+        description: The price of this listing as of the latest date in CALENDAR
+        data_type: float
+        data_tests:
+          - positive_value_check

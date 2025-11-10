@@ -8,6 +8,7 @@ models:
         data_tests:
           - not_null
           - unique
+          - positive_value_check
       - name: listing_id
         description: Unique ID for the listing to this which this row applies
         data_type: number
@@ -16,6 +17,7 @@ models:
           - relationships:
               field: listing_id
               to: ref('int_listings_data')
+          - positive_value_check
       - name: listing_review_score
         description: Review score, integer 1 to 5
         data_type: number
@@ -23,6 +25,7 @@ models:
           - not_null
           - accepted_values:
               values: [1,2,3,4,5]
+          - positive_value_check
       - name: listing_review_date
         description: date of the review
         data_type: date

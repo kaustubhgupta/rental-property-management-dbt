@@ -1,0 +1,125 @@
+models:
+  - name: listings_daily_report
+    description: The final analytical layer, built at a listing-calendar day grain.
+    columns:
+      - name: listing_id
+        description: Unique ID for listing
+        data_type: number
+        data_tests:
+          - not_null
+          - relationships:
+              field: LISTING_ID
+              to: ref('int_listings_data')
+          - positive_value_check
+      - name: host_id
+        description: Unique ID for the Host who owns this property
+        data_type: number
+        data_tests:
+          - not_null
+          - relationships:
+              field: HOST_ID
+              to: ref('int_host_data')
+          - positive_value_check
+      - name: host_location
+        description: Where the Host is based
+        data_type: varchar
+      - name: host_name
+        description: Display name of Host.
+        data_type: varchar
+      - name: host_since_date
+        description: When the Host signed up
+        data_type: date
+      - name: host_verification_methods_array
+        description: Array of methods the Host can use to verify
+        data_type: array
+      - name: calendar_date
+        description: Date of availability this row describes
+        data_type: date
+        data_tests:
+          - not_null
+      - name: is_available
+        description: if this property is available on this date.
+        data_type: boolean
+      - name: reservation_id
+        description: Unique ID for that DATE reservation
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: minimum_nights_to_book
+        description: The minimum number of nights that must be booked consecutively for this property
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: maximum_nights_to_book
+        description: The maximum number of nights that may be booked consecutively for this property
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: listing_in_point_price_usd
+        description: The price of this listing as of the date in CALENDAR
+        data_type: float
+        data_tests:
+          - positive_value_check
+      - name: listing_latest_price_usd
+        description: The price of this listing as of the latest date in CALENDAR
+        data_type: float
+        data_tests:
+          - positive_value_check
+      - name: listing_name
+        description: Display name of listing.
+        data_type: varchar
+      - name: listing_neighborhood
+        description: The neighborhood where this listing is located
+        data_type: varchar
+      - name: listing_property_type
+        description: Description of the type of property
+        data_type: varchar
+      - name: amenities_available_array
+        description: Array of amenities available for guests.
+        data_type: array
+      - name: listing_rooms_type
+        description: Description of the type of room
+        data_type: varchar
+        data_tests:
+          - accepted_values:
+              values: ['Private', 'Entire']
+      - name: no_of_bathrooms
+        description: Number of bathrooms available
+        data_type: float
+        data_tests:
+          - positive_value_check
+      - name: listing_bathroom_type
+        description: Type of bathroom available
+        data_type: varchar
+        data_tests:
+          - accepted_values:
+              values: ['Sharing', 'NA', 'Private']
+      - name: no_of_bedrooms
+        description: Number of bedrooms available for use
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: no_of_beds
+        description: Number of beds available for use
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: no_of_persons_accomodates
+        description: Number of guests this room can accommodate
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: no_of_reviews
+        description: The number of reviews this listing has ever received.
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: listing_first_review
+        description: The date of the first review this listing received
+        data_type: date
+      - name: listing_last_review
+        description: The date of the most recent review this listing received
+        data_type: date
+      - name: listing_avg_review_scores
+        description: The average review score of this listing
+        data_type: float

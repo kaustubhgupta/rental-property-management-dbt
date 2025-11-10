@@ -51,6 +51,9 @@ The **final analytical layer**, built at a **listing-calendar day grain**.
 - Utility macro to extract **distinct values** from **array-type fields** (e.g., `amenities`, `host_verifications`).  
 - Useful for queries requiring value-based filtering on nested attributes.
 
+### `generate_is_greater_than_test`
+- Test generation macro to generate singular test for checking if a value is greater than other
+- Useful to check columns which should not be greater than other columns
 ---
 
 ## 🕓 Snapshots

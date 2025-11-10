@@ -1,0 +1,23 @@
+models:
+  - name: int_host_data
+    description: Host Data intermediate table
+    columns:
+      - name: host_id
+        description: Unique ID for the Host who owns this property
+        data_type: number
+        data_tests:
+          - unique
+          - not_null
+          - positive_value_check
+      - name: host_name
+        description: Display name of Host
+        data_type: varchar
+      - name: host_since_date
+        description: When the Host signed up
+        data_type: date
+      - name: host_location
+        description: Where the Host is based
+        data_type: varchar
+      - name: host_verification_methods_array
+        description: Array of methods the Host can use to verify
+        data_type: array

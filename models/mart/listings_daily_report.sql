@@ -53,5 +53,5 @@ from listing_calendar_data c
 left join listings l 
 using (listing_id)
 left join host h
-using(listing_id, host_id)
+using(host_id)
 
