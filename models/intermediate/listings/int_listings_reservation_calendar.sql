@@ -6,6 +6,11 @@
     )
 }}
 
+/*
+  Listings reservation intermediate table at calendar day level.
+  Price is as per the calendar day and can vary for listings
+ */
+
 select
     listing_id,
     calendar_date,
@@ -17,7 +22,7 @@ select
 from {{ ref('stg_aws_s3__listings_reservation_calendar') }}
 
 {% if is_incremental() %}
--- append new calendar rows after the latest date in the existing model
+-- Fetching either new calendar dates data or loading new listings old data
 where calendar_date > (select max(calendar_date) from {{ this }}) 
       or listing_id not in (select distinct listing_id from {{ this }})
 {% endif %}

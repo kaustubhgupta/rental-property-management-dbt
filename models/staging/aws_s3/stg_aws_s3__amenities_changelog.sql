@@ -5,7 +5,7 @@ with source as (
       select
           {{ adapter.quote("LISTING_ID") }} AS listing_id,
         {{ adapter.quote("CHANGE_AT") }} AS change_at_date,
-        {{ adapter.quote("AMENITIES") }} AS amenities_available_array
+        {{ adapter.quote("AMENITIES") }} AS amenities_available_array  -- renaming as per data type
 
       from source
   )

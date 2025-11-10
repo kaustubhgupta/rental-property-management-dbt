@@ -1,3 +1,9 @@
+  
+/*
+This small script fetches the first time changes from the source amenities changelog.
+The changelog as data for 2 dates per listing. In order to ingest this properly in snapshots,
+this script will select min of the dates as the base data and create initial snapshot.
+*/
   select
     a.listing_id,
     a.change_at change_at_date,

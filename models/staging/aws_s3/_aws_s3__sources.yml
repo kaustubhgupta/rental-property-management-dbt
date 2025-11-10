@@ -5,7 +5,7 @@ sources:
     database: 
     schema: AWS_S3_FILES  
     tables:
-    # If these are actual files pulled from S3, 
+    # If these were actual files pulled from S3, 
     # then we can have a load date and add source freshnes with error or warn config
       - name: listings_data
         identifier: LISTINGS

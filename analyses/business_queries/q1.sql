@@ -1,13 +1,20 @@
-{# Write a query to find the total revenue and percentage of revenue by month segmented
-by whether or not air conditioning exists on the listing. #}
+/* 
+Write a query to find the total revenue and percentage of revenue by month segmented
+by whether or not air conditioning exists on the listing.
+*/
 
 with 
 
 listing_with_ac as (
 {{generate_targetted_array_element_distinct_values('listings_daily_report', 'amenities_available_array', 'air conditioning', 'listing_id')}}
-
+-- custom macro to fetch listings where AC is available, returns direct select statement
 ), 
 
+/*
+per listing per month year, the total revenue.
+Revenue is calculated using price at the time of booking 
+and not considering the latest listing price
+*/
 listing_revenue_per_month as (
   select
     listing_id,
@@ -18,6 +25,8 @@ listing_revenue_per_month as (
   group by all
   order by 2,1
 )
+
+-- final selection with percentage split calculations
 select year_month
 ,sum(total_revenue_per_listing_per_month) total_revenue_per_month
 ,round((sum(case when b.listing_id is null then total_revenue_per_listing_per_month else 0 end)*100.0)/(sum(total_revenue_per_listing_per_month)),2) as percent_revenue_per_month_without_ac

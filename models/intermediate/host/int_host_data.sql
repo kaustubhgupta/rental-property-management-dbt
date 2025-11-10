@@ -6,6 +6,11 @@
     )
 }}
 
+/*
+ Host Data intermediate table will maintain the host details. 
+ Any changes to host data is set to SCD1 type implementation
+ */
+
 select
     listing_id,
     host_id,

@@ -1,14 +1,24 @@
+/*
+Write a variation of the maximum duration query above for listings that have
+both a lockbox and a first aid kit listed in the amenities.
+*/
+
 with 
 
 listing_with_lockbox as (
 {{generate_targetted_array_element_distinct_values('listings_daily_report', 'amenities_available_array', 'lockbox', 'listing_id')}}
+-- custom macro to fetch listings where lockbox is available, returns direct select statement
 ), 
 
 listing_with_first_aid as (
 {{generate_targetted_array_element_distinct_values('listings_daily_report', 'amenities_available_array', 'first aid kit', 'listing_id')}}
+-- custom macro to fetch listings where first aid is available, returns direct select statement
 ), 
 
-
+/*
+whole logic below is same as done in q3a with minor changes in creating listing date data.
+Inner joins with above two CTEs which check lockbox and first aid amenities in listing
+*/
 listing_date_data as (
 select
 listing_id, 

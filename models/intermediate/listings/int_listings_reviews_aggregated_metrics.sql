@@ -4,6 +4,12 @@
     )
 }}
 
+/*
+  Aggregated meteics view for listings reviews.
+  This view will return latest metrics for reviews shared for listings.
+  count of reviews, listing first and latest review date and average review score of listings
+ */
+
 select
     listing_id,
     count(distinct review_id)::integer as no_of_reviews,
