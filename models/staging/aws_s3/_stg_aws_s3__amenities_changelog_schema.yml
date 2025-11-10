@@ -1,0 +1,18 @@
+models:
+  - name: stg_aws_s3__amenities_changelog
+    description: Amenities Changelog data
+    columns:
+      - name: listing_id
+        description: Unique ID for the listing to this which this row applies
+        data_type: number
+        data_tests:
+          - not_null
+          - positive_value_check
+      - name: change_at_date
+        description: date at which change were made
+        data_type: date
+        data_tests:
+          - not_null
+      - name: amenities_available_array
+        description: Array of amenities available for guests
+        data_type: array

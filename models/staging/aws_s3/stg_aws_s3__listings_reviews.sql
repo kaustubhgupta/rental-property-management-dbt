@@ -9,6 +9,11 @@ with source as (
         {{ adapter.quote("REVIEW_DATE") }}::date AS listing_review_date
 
       from source
+      /*
+      In the source data, we have two entries with review_id as null
+      These get detected in when the dbt build is run and tests are run.
+      In order to proceed with modeling, I added this filter.
+      */
       where review_id is not null
   )
   select * from renamed

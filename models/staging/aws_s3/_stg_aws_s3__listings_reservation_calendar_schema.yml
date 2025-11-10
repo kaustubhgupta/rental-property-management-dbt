@@ -1,0 +1,38 @@
+models:
+  - name: stg_aws_s3__listings_reservation_calendar
+    description: Listings reservation intermediate table at calendar day level
+    columns:
+      - name: listing_id
+        description: Unique ID for the listing to this which this row applies
+        data_type: number
+        data_tests:
+          - not_null
+          - positive_value_check
+      - name: calendar_date
+        description: Date of availability this row describes
+        data_type: date
+        data_tests:
+          - not_null
+      - name: is_available
+        description: if this property is available on this date.
+        data_type: boolean
+      - name: reservation_id
+        description: Unique ID for that DATE reservation
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: listing_in_point_price_usd
+        description: The price of this listing as of the date in CALENDAR
+        data_type: float
+        data_tests:
+          - positive_value_check
+      - name: minimum_nights_to_book
+        description: The minimum number of nights that must be booked consecutively for this property
+        data_type: number
+        data_tests:
+          - positive_value_check
+      - name: maximum_nights_to_book
+        description: The maximum number of nights that may be booked consecutively for this property
+        data_type: number
+        data_tests:
+          - positive_value_check
