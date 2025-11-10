@@ -74,3 +74,14 @@ Implements **Slowly Changing Dimension Type 2 (SCD2)** for the **amenities chang
 - Temporary or helper scripts used during pipeline development and debugging.
 
 ---
+
+## 👥 Business Query Results
+
+All business query results are stored as CSV under the business_queries_results folder
+
+---
+
+## ❄️ Snowflake Preview
+<img width="450" height="328" alt="image" src="https://github.com/user-attachments/assets/6f0777a8-5130-40d1-9398-cc856271efff" />
+<img width="420" height="690" alt="image" src="https://github.com/user-attachments/assets/4bf6bb7a-defd-4663-bfd8-cc54d365b677" />
+<img width="403" height="535" alt="image" src="https://github.com/user-attachments/assets/57f3a714-29a0-40bb-a5eb-c746cda88ec8" />
