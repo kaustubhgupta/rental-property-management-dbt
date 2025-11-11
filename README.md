@@ -1,7 +1,7 @@
 # 🏠 Rental Property Management — dbt Project
 
 ## 🧬 Lineage
-<img width="1919" height="663" alt="image" src="https://github.com/user-attachments/assets/6bfbfda9-23c4-46ea-a4c2-4cf5dc10c67b" />
+<img width="1802" height="319" alt="image" src="https://github.com/user-attachments/assets/10755c07-2dd9-45c5-994f-421ef978323d" />
 
 ---
 
@@ -44,16 +44,16 @@ The **final analytical layer**, built at a **listing-calendar day grain**.
 
 ### `generate_schema_name`
 - Custom macro overriding dbt’s default schema generation behavior.  
-- Selects the schema based on configuration provided in `dbt_project.yml`.  
-- If no schema is specified, falls back to the default from `profiles.yml`.
+- Selects the schema based on the configuration provided in `dbt_project.yml`.  
+- If no schema is specified, it falls back to the default from `profiles.yml`.
 
 ### `generate_targeted_array_element_distinct_values`
-- Utility macro to extract **distinct values** from **array-type fields** (e.g., `amenities`, `host_verifications`).  
-- Useful for queries requiring value-based filtering on nested attributes.
+- Utility macro to extract **distinct values** of a coloum based on filtering **array-type fields** (e.g., `amenities`, `host_verifications`).  
+- Useful for queries requiring value-based filtering on array-type values.
 
 ### `generate_is_greater_than_test`
-- Test generation macro to generate singular test for checking if a value is greater than other
-- Useful to check columns which should not be greater than other columns
+- Test generation macro to generate a singular test for checking if a value is greater than another
+- Useful to check columns that should not be greater than other columns
 ---
 
 ## 🕓 Snapshots
@@ -71,7 +71,7 @@ Implements **Slowly Changing Dimension Type 2 (SCD2)** for the **amenities chang
 ## 📊 Analysis
 
 ### `/business_queries`
-- Contains SQL scripts addressing analytical questions with detailed step-by-step explanations.
+- Contains SQL scripts addressing analytical questions with explanations.
 
 ### `/adhoc_scripts`
 - Temporary or helper scripts used during pipeline development and debugging.
