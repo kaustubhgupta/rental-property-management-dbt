@@ -1,6 +1,6 @@
 models:
   - name: stg_aws_s3__listings_reservation_calendar
-    description: Listings reservation intermediate table at calendar day level
+    description: Listings reservation data from source
     columns:
       - name: listing_id
         description: Unique ID for the listing to this which this row applies

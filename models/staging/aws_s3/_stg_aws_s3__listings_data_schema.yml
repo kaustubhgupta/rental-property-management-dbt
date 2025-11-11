@@ -1,6 +1,6 @@
 models:
   - name: stg_aws_s3__listings_data
-    description: Listings data intermediate table
+    description: Listings data from source
     columns:
       - name: listing_id
         description: Unique ID for this listing
